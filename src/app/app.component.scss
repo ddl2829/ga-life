@@ -1,0 +1,13 @@
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 10px 50px;
+    flex-wrap: wrap;
+}
+.current-step {
+    margin-left: 50px;
+}
+.current-population {
+    margin-left: 50px;
+}

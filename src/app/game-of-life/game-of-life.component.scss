@@ -1,0 +1,17 @@
+.game-of-life {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    width: 100px;
+    margin: 20px 10px 0px 10px;
+    canvas {
+        width: 50px;
+    }
+    label {
+        font-weight: bold;
+    }
+    &.dead {
+        background-color: darkred;
+    }
+}

@@ -1,0 +1,8 @@
+<div class="game-of-life" [class.dead]="dead">
+    <label>Start:</label>
+    <canvas #startingCanvas width="50" height="50" style="border:1px solid #000000;"></canvas>
+    <label>Current:</label>
+    <canvas #myCanvas width="50" height="50" style="border:1px solid #000000;"></canvas>
+    <label>Cycles: {{cycles}}</label>
+    <button *ngIf="isBest" (click)="start()">Run</button>
+</div>
