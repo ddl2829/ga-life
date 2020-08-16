@@ -2,12 +2,36 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    padding: 10px 50px;
+    padding: 5px 50px;
     flex-wrap: wrap;
+    &.reversed {
+        flex-direction: row-reverse;
+    }
 }
-.current-step {
-    margin-left: 50px;
+
+.description {
+    font-size: 10px;
 }
-.current-population {
-    margin-left: 50px;
+
+.best-performers {
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 50px;
+}
+
+.options {
+    border: 1px dotted black;
+}
+
+.active {
+    border: 1px dotted red;
+}
+
+.ul {
+    text-decoration: underline;
 }

@@ -10,7 +10,7 @@ export class GameOfLife {
                 const rawRandom = Math.random(); // get a raw random number
                 // const improvedNum = (rawRandom * 2); // convert it to an int
                 // const randomBinary = Math.floor(improvedNum);
-                if (rawRandom > 0.98) {
+                if (rawRandom > 0.99) {
                     this.genes[j][k] = 1;
                 } else {
                     this.genes[j][k] = 0;
@@ -23,7 +23,7 @@ export class GameOfLife {
         for (let j = 0; j < this.genes.length; j++) {
             for (let k = 0; k < this.genes[0].length; k++) {
                 const rawRandom = Math.random();
-                if (rawRandom > 0.98) {
+                if (rawRandom > 0.99) {
                     this.genes[j][k] = this.genes[j][k] ? 0 : 1;
                 }
             }

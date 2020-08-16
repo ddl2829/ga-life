@@ -1,20 +1,63 @@
-<div class="current-step">
+<div class="flex-row description">
+  <p>
+    This is a simulation of Conway's Game of Life using a genetic algorithm to find
+    starting patterns that will run as long as possible inside a 50x50 game board.
+    <br><br>
+    At the start, the states of each board are randomly seeded. We then run the simulations
+    following Conway's rules until each board has reached a halted state. The bottom N performers
+    (measured by number of cycles until reaching a halted state) are then killed. N new members
+    are introduced to the population and the population is shuffled.
+    <br><br>
+    Each board is paired with one other board and two children are produced each recieving half
+    of their pattern from each parent. The parents are culled and the remaining
+    children make up the next generation.
+  </p>
+</div>
+
+<div class="flex-column options">
+  <div class="flex-row">
+    <span class="ul">
+      Simulation Options:
+    </span>
+<label>
+  Population:
+
+<input type="number" [(ngModel)]="startingPopulation">
+</label>
+<label>
+  Number To Cull:
+
+<input type="number" [(ngModel)]="numberToCull">
+</label>
+<button (click)="startSimulation()" *ngIf="!running">Start Simulation</button>
+</div>
+</div>
+
+<ng-container *ngIf="running">
+
+<div class="flex-row">
+  Best Performer Per Generation:
+</div>
+<div class="flex-row best-performers">
+  <app-game-of-life *ngFor="let gene of bestPerformers; let i = index" [generation]="bestPerformers.length - i" [isBest]="true" [cycles]="gene.score" [startGrid]="gene.genes"></app-game-of-life>
+</div>
+
+<div class="flex-row active">
+  <span class="ul">
+    Active Simulation:
+  </span>
+<span>
   {{currentStep}}
-</div>
-<div class="current-population">
-  population: {{genes.length}}
-</div>
-<div class="current-population">
-  generations: {{round}}
+</span>
+<span>
+  Current Population: {{genes.length}}
+</span>
+<span>
+  Current Generation: {{round}}
+</span>
 </div>
 
 <div class="flex-row">
   <app-game-of-life *ngFor="let gene of genes; index as i;" (done)="done(gene, $event)" [startGrid]="gene.genes"></app-game-of-life>
 </div>
-
-<div class="current-population">
-  Best performers:
-</div>
-<div class="flex-row">
-  <app-game-of-life *ngFor="let gene of bestPerformers;" [isBest]="true" [cycles]="gene.score" [startGrid]="gene.genes"></app-game-of-life>
-</div>
+</ng-container>

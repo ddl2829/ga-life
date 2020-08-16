@@ -10,7 +10,10 @@ export class GameOfLifeComponent implements OnInit, AfterViewInit {
   public startGrid: number[][] = null;
 
   @Input()
-  public isBest: boolean = false;
+  public isBest = false;
+
+  @Input()
+  public generation: number;
 
   public theGrid: number[][];
   public mirrorGrid: number[][];
