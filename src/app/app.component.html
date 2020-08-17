@@ -1,17 +1,37 @@
-<div class="flex-row description">
+<div *ngIf="showDescription" class="flex-row description">
   <p>
     This is a simulation of Conway's Game of Life using a genetic algorithm to find
-    starting patterns that will run as long as possible inside a 50x50 game board.
-    <br><br>
-    At the start, the states of each board are randomly seeded. We then run the simulations
-    following Conway's rules until each board has reached a halted state. The bottom N performers
-    (measured by number of cycles until reaching a halted state) are then killed. N new members
-    are introduced to the population and the population is shuffled.
-    <br><br>
-    Each board is paired with one other board and two children are produced each recieving half
-    of their pattern from each parent. The parents are culled and the remaining
-    children make up the next generation.
+    random starting patterns that will run for as long as possible inside of a 50x50 game board.
+    For the first generation, all boards are seeded randomly about 1% filled. Each generation
+    operates as follows:
   </p>
+  <div>
+    <ol>
+      <li>Each board is simulated following Conway's rules until reaching a halted state.
+        <ul>
+          <li>Each game keeps track of the previous 50 board states. Due to the deterministic nature of Conway's rules, when we reach a state that appears in this list the game is considered halted.</li>
+          <li>Many simulations result in small patterns that run forever, but we want to find something that repeats infinitely in a big interesting way.</li>
+        </ul>
+      </li>
+      <li>
+        The bottom N performers (as entered below) are culled.
+      </li>
+      <li>
+        N new members are randomly seeded and added to the population
+      </li>
+      <li>
+        Boards are randomly paired and produce 2 offspring, each having half of their parent's board patterns.
+      </li>
+      <li>
+        Child boards are given a 1% chance to mutate for each cell.
+      </li>
+      <li>
+        Child boards become the population for the next generation. Repeat from 1.
+      </li>
+    </ol>
+
+      <button (click)="showDescription = false">Hide This Description</button>
+    </div>
 </div>
 
 <div class="flex-column options">

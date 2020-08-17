@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
   generationsPerGene = [];
   bestPerformers: GameOfLife[] = [];
   running = false;
+  showDescription = true;
 
   @ViewChildren(GameOfLifeComponent)
   public children: QueryList<GameOfLifeComponent>;
