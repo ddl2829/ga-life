@@ -10,12 +10,12 @@ import { GameOfLife } from './game-of-life/game-of-life';
 export class AppComponent implements OnInit {
   title = 'ga-life';
   genes: GameOfLife[];
-  startingPopulation = 20;
+  startingPopulation = 24;
   columns = 50;
   rows = 50;
   round = 1;
   completeGames = 0;
-  numberToCull = 0;
+  numberToCull = 2;
   currentStep = 'seeding gene pool';
   generationsPerGene = [];
   bestPerformers: GameOfLife[] = [];
