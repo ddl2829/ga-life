@@ -1,6 +1,20 @@
-# GaLife
+# Conway's Genetic Game of Life
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.1.
+See it in action at https://ga-life.lex-dev.ml
+
+This is a simulation of Conway's Game of Life using a genetic algorithm to find
+random starting patterns that will run for as long as possible inside of a 50x50 game board.
+For the first generation, all boards are seeded randomly about 1% filled. Each generation
+operates as follows:
+
+1. Each board is simulated following Conway's rules until reaching a halted state.
+    * Each game keeps track of the previous 50 board states. Due to the deterministic nature of Conway's rules, when we reach a state that appears in this list the game is considered halted.
+    * Many simulations result in small patterns that run forever, but we want to find something that repeats infinitely in a big interesting way.
+2. The bottom N performers (as entered below) are culled.
+3. N new members are randomly seeded and added to the population
+4. Boards are randomly paired and produce 2 offspring, each having half of their parent's board patterns.
+5. Child boards are given a 1% chance to mutate for each cell.
+6. Child boards become the population for the next generation. Repeat from 1.
 
 ## Development server
 
